@@ -1,0 +1,21 @@
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Employee ID</th>
+            <th>Time</th>
+            <th>Action</th>
+            <th>Effective Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="att : ${attendanceList}">
+            <td th:text="${att.id}"></td>
+            <td th:text="${att.employee.id}"></td>
+            <td th:text="${att.clockInTime != null ? #temporals.format(att.clockInTime, 'dd-MMM-yyyy HH:mm:ss') : 
+                       #temporals.format(att.clockOutTime, 'dd-MMM-yyyy HH:mm:ss')}"></td>
+            <td th:text="${att.action}"></td>
+            <td th:text="${att.effectiveTime}"></td>
+        </tr>
+    </tbody>
+</table>

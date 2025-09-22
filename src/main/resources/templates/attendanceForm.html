@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Attendance System</title>
+    <script>
+        function clockIn() {
+            var empId = document.getElementById("employeeSelect").value;
+            if (!empId) {
+                alert("Please select an employee first!");
+                return;
+            }
+            fetch("/clockIn?id=" + empId, { method: "POST" })
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(err => alert("Error: " + err));
+        }
+
+        function clockOut() {
+            var empId = document.getElementById("employeeSelect").value;
+            if (!empId) {
+                alert("Please select an employee first!");
+                return;
+            }
+            fetch("/clockOut?id=" + empId, { method: "POST" })
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(err => alert("Error: " + err));
+        }
+    </script>
+</head>
+<body>
+    <h2>Employee Punch In/Out</h2>
+
+    <!-- Employee Dropdown -->
+    <label>Employee:</label>
+    <select id="employeeSelect">
+        <option value="" disabled selected>Select Employee</option>
+        <option th:each="emp : ${employees}" th:value="${emp.id}" th:text="${emp.name}"></option>
+    </select>
+
+    <br/><br/>
+
+    <!-- Buttons -->
+    <button type="button" onclick="clockIn()">Clock In</button>
+    <button type="button" onclick="clockOut()">Clock Out</button>
+
+    <br/><br/>
+    <a th:href="@{/viewAttendance}">View All Attendance Records</a>
+</body>
+</html>
