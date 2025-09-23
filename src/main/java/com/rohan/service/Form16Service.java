@@ -102,10 +102,11 @@ public class Form16Service {
 	
 	
 	
-	public String exportReportByName(String format,String CompanyName) throws FileNotFoundException, JRException
+	public String exportReportByName(String format,String name) throws FileNotFoundException, JRException
 	{
 		String path="C:\\reports";
-		CompanyEntity byCompanyName = crepo.findByCompanyName(CompanyName);
+		CompanyEntity byCompanyName = crepo.findByName(name);
+		System.err.println(byCompanyName);
 		File file=ResourceUtils.getFile("classpath:reports\\Blank_A4.jrxml");
 		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 		
@@ -127,10 +128,10 @@ public class Form16Service {
 		
 		return "Report generated at"+path;
 	}
+		
 	
 	
 	
-	String name="rohan";
 	
 	
 	

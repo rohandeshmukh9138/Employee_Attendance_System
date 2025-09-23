@@ -45,10 +45,10 @@ public class Form16Controller {
 		 return exportReport;
 	}
 	
-	@GetMapping("/exportrepbyname/{format}/{CompanyName}")
-	public String exportReportByName(@PathVariable String format,@PathVariable String CompanyName) throws FileNotFoundException, JRException
+	@GetMapping("/exportrepbyname/{format}/{companyName}")
+	public String exportReportByName(@PathVariable String format,@PathVariable String companyName) throws FileNotFoundException, JRException
 	{
-		String exportReportByName = service.exportReportByName(format,CompanyName);
+		String exportReportByName = service.exportReportByName(format,companyName);
 		return exportReportByName;
 	}
 	

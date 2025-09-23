@@ -9,7 +9,7 @@
     f.employee_id,
     f.financial_year,
     f.date,
-    c.name AS company_name,
+    c.name AS name,
     c.address,
     c.email
 FROM form_16 f
@@ -24,7 +24,7 @@ JOIN company c ON f.company_id = c.id
 	
 	<field name="date" class="java.time.LocalDateTime"></field>
 	
-	<field name="companyName" class="java.lang.String"></field>
+	<field name="name" class="java.lang.String"></field>
 	
 	<field name="address" class="java.lang.String"></field>
 	
@@ -66,7 +66,7 @@ JOIN company c ON f.company_id = c.id
 				<reportElement x="401" y="0" width="100" height="9" uuid="08b75c1e-30d2-4bc4-9fda-545089f0410b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ced5b35a-2a05-4b25-bcf5-ed6833f532a7"/>
 				</reportElement>
-				<text><![CDATA[companyName]]></text>
+				<text><![CDATA[name]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="514" y="0" width="100" height="9" uuid="0ae7a5bf-477d-444e-acd8-0644c61244b4">
@@ -114,7 +114,7 @@ JOIN company c ON f.company_id = c.id
 				<reportElement x="318" y="0" width="79" height="100" uuid="af4e130b-9928-414a-bb2c-1dd035c93455">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ced5b35a-2a05-4b25-bcf5-ed6833f532a7"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="397" y="0" width="79" height="100" uuid="78b47296-0702-4673-8f5b-97d394583bd9">

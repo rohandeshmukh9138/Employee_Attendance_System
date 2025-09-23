@@ -6,5 +6,5 @@ import com.rohan.entity.CompanyEntity;
 
 public interface CompanyRepository extends JpaRepository<CompanyEntity, Long>{
 
-	CompanyEntity findByCompanyName(String CompanyName);
+	CompanyEntity findByName(String name);
 }
